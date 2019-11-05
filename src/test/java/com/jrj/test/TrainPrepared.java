@@ -15,18 +15,18 @@ import com.hankcs.hanlp.seg.common.Term;
 public class TrainPrepared {
 
 	public static void main(String[] args) {
-		String f="/data/baidu1/news2016zh_train.json";
-		FileInputStream fi=null;
-		BufferedReader fp=null;
+		String f = "/data/baidu1/news2016zh_train.json";
+		FileInputStream fi = null;
+		BufferedReader fp = null;
 		try {
-			fi=new FileInputStream(f);
-			InputStreamReader fileReader = new InputStreamReader(fi,"utf-8");
+			fi = new FileInputStream(f);
+			InputStreamReader fileReader = new InputStreamReader(fi, "utf-8");
 			fp = new BufferedReader(fileReader);
 			String line;
-			int i=0;
+			int i = 0;
 			do {
-				line=fp.readLine();
-				String l=JSON.parseObject(line).getString("content");
+				line = fp.readLine();
+				String l = JSON.parseObject(line).getString("content");
 				List<Term> termList = HanLP.segment(l);
 				for(Term t:termList) {
 					if(CoreStopWordDictionary.contains(t.word)) {
@@ -34,17 +34,26 @@ public class TrainPrepared {
 					}
 					System.out.print(t.word+" ");
 				}
+//				JiebaSegmenter segmenter = new JiebaSegmenter();
+//				List<String> aa = segmenter.sentenceProcess(l);
+//				for (String s : aa) {
+//					if (CoreStopWordDictionary.contains(s)) {
+//						continue;
+//					}
+//					System.out.print(s+" ");
+//				}
 				System.out.println();
 				i++;
-				if(i>100)break;
-			}while(line!=null);
+				if (i > 100)
+					break;
+			} while (line != null);
 
 		} catch (FileNotFoundException e) {
 
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				fp.close();
 				fi.close();
