@@ -28,7 +28,7 @@ import java.util.Map;
 public class DemoWord2Vec
 {
     private static final String TRAIN_FILE_NAME = MSR.TRAIN_PATH;
-    private static final String MODEL_FILE_NAME = "data/test/word2vec.txt";
+    private static final String MODEL_FILE_NAME = "/data/HanLP/布/hanlp-wiki-vec-zh/hanlp-wiki-vec-zh.txt";
 
     public static void main(String[] args) throws IOException
     {
