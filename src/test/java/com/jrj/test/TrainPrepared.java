@@ -76,6 +76,11 @@ public class TrainPrepared {
 					e.printStackTrace();
 				}
 			} while (line != null);
+			//写入剩余的数据
+			if(ww.length()>0) {
+				String s=ww.toString();
+				fw.write(s);
+			}
 
 		} catch (FileNotFoundException e) {
 
