@@ -28,7 +28,7 @@ import java.util.Map;
 public class DemoWord2Vec
 {
     private static final String TRAIN_FILE_NAME = MSR.TRAIN_PATH;
-    private static final String MODEL_FILE_NAME = "/data/HanLP/布/hanlp-wiki-vec-zh/hanlp-wiki-vec-zh.txt";
+    private static final String MODEL_FILE_NAME = "/data/baidu1/news_msr.txt";
 
     public static void main(String[] args) throws IOException
     {
@@ -36,6 +36,7 @@ public class DemoWord2Vec
         printNearest("上海", wordVectorModel);
         printNearest("美丽", wordVectorModel);
         printNearest("购买", wordVectorModel);
+        printNearest("股票", wordVectorModel);
         System.out.println(wordVectorModel.similarity("上海", "广州"));
         System.out.println(wordVectorModel.analogy("日本", "自民党", "共和党"));
 
@@ -61,6 +62,7 @@ public class DemoWord2Vec
         printNearestDocument("农业", documents, docVectorModel);
         printNearestDocument("我要看比赛", documents, docVectorModel);
         printNearestDocument("要不做饭吧", documents, docVectorModel);
+        printNearestDocument("股票", documents, docVectorModel);
     }
 
     static void printNearest(String word, WordVectorModel model)
