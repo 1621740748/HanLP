@@ -39,6 +39,7 @@ public class DemoWord2Vec {
 		Long end=System.currentTimeMillis();
 		System.out.println("load model takes:"+(end-start));
 
+
 		// 文档向量
 		DocVectorModel docVectorModel = new DocVectorModel(wordVectorModel);
 		@SuppressWarnings("deprecation")
@@ -93,6 +94,7 @@ public class DemoWord2Vec {
 		System.out.println(keywordList);
 
 	}
+
 
 	private static void printHeader(String query) {
 		System.out.printf(
